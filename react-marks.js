@@ -60,7 +60,7 @@
     return children;
   }
 
-  var MarkedComponent = React.createClass({
+  var Marks = React.createClass({
     getDefaultProps: function() { return {
       component:"span",
       markComponent:"mark",
@@ -74,9 +74,9 @@
 
       var children = getChildNodes.call(this,this.props.text,matches,this.props.markComponent);
       
-      return ( React.DOM.span({},children) )
+      return ( React.createElement(this.props.component,{},children) )
     }
   });
 
-  root.MarkedComponent = MarkedComponent;
+  root.Marks = Marks;
 })(this,this.React);
