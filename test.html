@@ -1,16 +1,38 @@
 <html>
 <head>
+  <style>
+    mark {
+      font-weight: bold;
+    }
+    input {
+      display: block;
+      clear: both;
+      margin: 20px 0px;
+    }
+  </style>
   <script src="http://fb.me/react-0.12.2.js"></script>
   <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
   <script src="react-marks.js"></script>
   <script type="text/jsx">
     var copy = "Leggings Williamsburg tote bag, readymade organic single-origin coffee tousled. Asymmetrical drinking vinegar brunch deep v, trust fund cronut squid farm-to-table dreamcatcher craft beer authentic chambray Intelligentsia Pinterest mlkshk. Lumbersexual cliche Blue Bottle, artisan seitan letterpress yr Godard. Vice sustainable normcore plaid, selfies Pinterest whatever retro tattooed tousled squid taxidermy. Biodiesel Intelligentsia Blue Bottle kale chips. Fashion axe beard lumbersexual lomo, whatever ethical vegan brunch chillwave Intelligentsia banjo fingerstache salvia pour-over swag. Migas +1 gentrify, locavore skateboard letterpress before they sold out sriracha tote bag meggings Schlitz ugh. XOXO wayfarers Tumblr yr chambray authentic sustainable, cardigan hella bitters small batch mixtape 8-bit chillwave. Wayfarers tilde occupy jean shorts keytar pork belly. PBR vinyl Thundercats, trust fund aesthetic letterpress Brooklyn. Before they sold out cliche photo booth organic four dollar toast, butcher cornhole umami. Mumblecore kogi +1, butcher keytar try-hard cred single-origin coffee gentrify freegan. Twee tilde Intelligentsia, Blue Bottle fingerstache photo booth lomo. Post-ironic try-hard Wes Anderson stumptown. Meggings cornhole photo booth Carles High Life hella, Truffaut Williamsburg XOXO umami beard. 8-bit health goth vinyl Helvetica. 3 wolf moon retro American Apparel wayfarers kogi try-hard. Fanny pack listicle craft beer Neutra, occupy gluten-free kogi put a bird on it Echo Park next level Truffaut. Banksy church-key Tumblr, sriracha blog pop-up you probably haven't heard of them kogi biodiesel fap tattooed. Ugh banh mi Kickstarter, Etsy skateboard meditation cred tote bag. Hashtag dreamcatcher fashion axe, sriracha XOXO American Apparel ugh small batch kale chips swag pug tattooed literally banh mi. Viral Tumblr kogi heirloom artisan flexitarian. Tousled shabby chic PBR&B, trust fund quinoa heirloom kitsch. Pop-up iPhone irony, Bushwick ethical leggings ennui. Food truck deep v bicycle rights lumbersexual, shabby chic small batch Schlitz locavore Godard meditation butcher crucifix. Art party listicle wolf, shabby chic flexitarian lomo disrupt tilde. Cold-pressed flexitarian disrupt Kickstarter yr distillery. Ugh pork belly tilde flannel, whatever typewriter vegan biodiesel chambray PBR heirloom VHS YOLO."
-    React.render(
-      ( 
-        <Marks 
-          text={copy}
-          marks={[/pbr/ig,'kale']}/> 
-      )
+
+    var SearchComponent = React.createClass({
+      getInitialState: function() { return {
+        search:""
+      }},
+      search :function(event) {
+        this.setState({search:event.target.value});
+      },
+      render: function() { return (
+        <div>
+          <input value={this.state.search} onChange={this.search} />
+          <Marks text={copy} marks={[this.state.search]}/>
+        </div>
+      )}
+    });
+
+    React.render( 
+      ( <SearchComponent /> )
       ,document.body
     );
   </script>

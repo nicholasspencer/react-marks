@@ -19,7 +19,7 @@
       //if global regex; loop
       var result;
       if(test.global) {
-        while((result = test.exec(text)) !== null) {
+        while(((result = test.exec(text)) !== null) && result[0].length) {
           results.push(new Match(result));
         }
       } else {
@@ -48,7 +48,6 @@
       beginSlice = endSlice+match.text.length;
 
       // mark node
-      console.log(match.text);
       results.push(React.createElement(nodeClass,{key:match.key},match.text));
 
       return results;
