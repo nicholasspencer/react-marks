@@ -1,0 +1,15 @@
+{
+  "name": "react-marked-component",
+  "version": "0.0.1",
+  "description": "mark regex found in supplied text with html5 marked tags",
+  "main": "react-marked.js",
+  "keywords": [
+    "highlight",
+    "mark",
+    "search",
+    "results"
+  ],
+  "private":"true",
+  "author": "@nicholasspencer",
+  "license": "MIT"
+}
