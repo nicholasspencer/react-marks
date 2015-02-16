@@ -8,6 +8,6 @@ Provides a simple React component that wraps substrings in HTML `<mark>` tags.
 
 ## in action
 
-![pbr marks](nicholasspencer.github.io/react-marks/images/pbr.png)
+![pbr marks](https://nicholasspencer.github.io/react-marks/images/pbr.png)
 
-![lumber marks](nicholasspencer.github.io/react-marks/images/lumber.png)
+![lumber marks](https://nicholasspencer.github.io/react-marks/images/lumber.png)
