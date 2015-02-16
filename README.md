@@ -4,7 +4,7 @@ Provides a simple React component that wraps substrings in HTML `<mark>` tags.
 - component : String/ReactClass type (`<span>` by default)
 - markComponent : String/ReactClass type (`<mark>` by default)
 - text : String
-- marks : Array <String/RegExp>
+- marks : Array of String/RegExp
 
 ## [in action](http://nicholasspencer.github.io/react-marks/test.html)
 
