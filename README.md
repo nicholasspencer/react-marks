@@ -6,7 +6,7 @@ Provides a simple React component that wraps substrings in HTML `<mark>` tags.
 - text : String
 - marks : Array <String/RegExp>
 
-## in action
+## [in action](http://nicholasspencer.github.io/react-marks/test.html)
 
 ![pbr marks](https://nicholasspencer.github.io/react-marks/images/pbr.png)
 
