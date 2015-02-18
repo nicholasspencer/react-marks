@@ -1,9 +1,11 @@
 (function (root,React) {
   'use strict';
   var Match = function(regExpResult) {
+    if (!regExpResult || regExpResult[0].length==0) return null;
+    if (!(this instanceof Match)) return new Match(regExpResult);
+
     this.text = regExpResult[0];
     this.index = regExpResult["index"];
-
     this.key = this.index+"-"+this.text.length;
     return this;
   }
@@ -17,14 +19,14 @@
       }
 
       //if global regex; loop
-      var result;
+      var match;
       if(test.global) {
-        while(((result = test.exec(text)) !== null) && result[0].length) {
-          results.push(new Match(result));
+        while((match = Match(test.exec(text))) !== null) {
+          results.push(match);
         }
       } else {
-        if((result = test.exec(text)) !== null) {
-          results.push(new Match(result));
+        if((match = Match(test.exec(text))) !== null) {
+          results.push(match);
         }
       }
 

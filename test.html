@@ -1,15 +1,5 @@
 <html>
 <head>
-  <style>
-    mark {
-      font-weight: bold;
-    }
-    input {
-      display: block;
-      clear: both;
-      margin: 20px 0px;
-    }
-  </style>
   <script src="http://fb.me/react-0.12.2.js"></script>
   <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
   <script src="react-marks.js"></script>
@@ -25,7 +15,9 @@
       },
       render: function() { return (
         <div>
-          <input value={this.state.search} onChange={this.search} />
+          <div>
+            <input value={this.state.search} onChange={this.search} />
+          </div>
           <Marks text={copy} marks={[this.state.search]}/>
         </div>
       )}
