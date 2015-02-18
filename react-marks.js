@@ -1,4 +1,12 @@
-(function (root,React) {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['react'], factory);
+  } else if (typeof exports !== 'undefined') {
+    module.exports = factory(require('react'));
+  } else {
+    root.ReactMarks = factory(root.React);
+  }
+})(this, function (React) {
   'use strict';
   var Match = function(regExpResult) {
     if (!regExpResult || regExpResult[0].length==0) return null;
@@ -19,7 +27,7 @@
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  var Marks = React.createClass({
+  return React.createClass({
     getDefaultProps: function() { return {
       component:"span",
       markComponent:"mark",
@@ -76,5 +84,4 @@
     }
   });
 
-  root.Marks = Marks;
-})(this,this.React);
+});
