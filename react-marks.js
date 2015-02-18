@@ -16,24 +16,36 @@
     this.index = regExpResult["index"];
     this.key = this.index+"-"+this.text.length;
     return this;
-  }
+  };
 
   var sortMatchesByIndex = function(first,second) {
     return first.index - second.index;
-  }
+  };
 
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
   var escapeRegExp = function (string){
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  }
+  };
+
+  var defaultProps = {
+    component:"span",
+    markComponent:"mark",
+    text:"",
+    marks:[]
+  };
 
   return React.createClass({
-    getDefaultProps: function() { return {
-      component:"span",
-      markComponent:"mark",
-      text:"",
-      marks:[]
-    }},
+    getDefaultProps: function() { return defaultProps },
+    getTransferProps: function() {
+      var defaultKeys = Object.keys(defaultProps);
+      var transferKeys = Object.keys(this.props).filter(function(key){
+        return defaultKeys.indexOf(key) < 0;
+      });
+      return transferKeys.reduce(function(props,key){
+        props[key] = this.props[key];
+        return props;
+      }.bind(this),{});
+    },
     getMatches: function() {
       return this.props.marks.reduce(function(results,test){
         // if the test is not supplied as a regular expression;
@@ -78,9 +90,10 @@
       return children;
     },
     render: function() {
+      var props = this.getTransferProps();
       var matches = this.getMatches().sort(sortMatchesByIndex);
       var children = this.renderChildren(matches);
-      return ( React.createElement(this.props.component,{},children) )
+      return ( React.createElement(this.props.component,props,children) )
     }
   });
 
