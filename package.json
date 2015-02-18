@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "description": "mark regex found in supplied text with html5 marked tags",
   "main": "react-marked.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicholasspencer/react-marks.git"
+  },
   "keywords": [
     "highlight",
     "mark",
     "search",
     "results"
   ],
-  "private":"true",
+  "private": "true",
   "author": "@nicholasspencer",
   "license": "MIT"
 }
