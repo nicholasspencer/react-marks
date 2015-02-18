@@ -14,6 +14,11 @@
     return first.index - second.index;
   }
 
+  // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+  var escapeRegExp = function (string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
   var Marks = React.createClass({
     getDefaultProps: function() { return {
       component:"span",
@@ -26,7 +31,7 @@
         // if the test is not supplied as a regular expression;
         // default it to case-insensitive/global
         if (!(test instanceof RegExp)) {
-          test = new RegExp(test,'gi'); 
+          test = new RegExp(escapeRegExp(test),'gi');
         }
 
         //if global regex; loop
